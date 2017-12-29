@@ -1,0 +1,1032 @@
+{
+  "info": {
+    "title": "Peatio SDK",
+    "version": "0.2.4"
+  },
+  "swagger": "2.0",
+  "produces": [
+    "application/json"
+  ],
+  "host": "demo.peatio.tech",
+  "basePath": "/api/v2",
+  "components": {
+    "securitySchemes": {
+      "oAuthPeatio": {
+        "type": "oauth2",
+        "description": "This API uses OAuth 2 with the implicit grant flow.",
+        "flows": {
+          "implicit": {
+            "authorizationUrl": "https://accounts.peatio.tech/oauth2/authorize",
+            "scopes": {
+              "read": "read your resources",
+              "write": "modify resources in your account"
+            }
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "markets",
+      "description": "Operations about markets"
+    },
+    {
+      "name": "tickers",
+      "description": "Operations about tickers"
+    },
+    {
+      "name": "members",
+      "description": "Operations about members"
+    },
+    {
+      "name": "deposits",
+      "description": "Operations about deposits"
+    },
+    {
+      "name": "deposit",
+      "description": "Operations about deposits"
+    },
+    {
+      "name": "deposit_address",
+      "description": "Operations about deposit_addresses"
+    },
+    {
+      "name": "orders",
+      "description": "Operations about orders"
+    },
+    {
+      "name": "order",
+      "description": "Operations about orders"
+    },
+    {
+      "name": "order_book",
+      "description": "Operations about order_books"
+    },
+    {
+      "name": "depth",
+      "description": "Operations about depths"
+    },
+    {
+      "name": "trades",
+      "description": "Operations about trades"
+    },
+    {
+      "name": "k",
+      "description": "Operations about ks"
+    },
+    {
+      "name": "k_with_pending_trades",
+      "description": "Operations about k_with_pending_trades"
+    },
+    {
+      "name": "timestamp",
+      "description": "Operations about timestamps"
+    }
+  ],
+  "paths": {
+    "/markets": {
+      "get": {
+        "summary": "Get all available markets.",
+        "description": "Get all available markets.",
+        "produces": [
+          "application/json"
+        ],
+        "security": {
+          "oAuthPeatio": [
+            "write",
+            "read"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "Get all available markets."
+          }
+        },
+        "tags": [
+          "markets"
+        ],
+        "operationId": "getV2Markets"
+      }
+    },
+    "/tickers": {
+      "get": {
+        "summary": "Get ticker of all markets.",
+        "description": "Get ticker of all markets.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Get ticker of all markets."
+          }
+        },
+        "tags": [
+          "tickers"
+        ],
+        "operationId": "getV2Tickers"
+      }
+    },
+    "/tickers/{market}": {
+      "get": {
+        "summary": "Get ticker of specific market.",
+        "description": "Get ticker of specific market.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "market",
+            "description": "Unique market id. It's always in the form of xxxyyy, where xxx is the base currency code, yyy is the quote currency code, e.g. 'btcusd'. All available markets can be found at /api/markets.",
+            "type": "string",
+            "enum": [
+              "btcusd",
+              "xrpusd",
+              "btcxrp"
+            ],
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get ticker of specific market."
+          }
+        },
+        "tags": [
+          "tickers"
+        ],
+        "operationId": "getV2TickersMarket"
+      }
+    },
+    "/members/me": {
+      "get": {
+        "summary": "Get your profile and accounts info.",
+        "description": "Get your profile and accounts info.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Get your profile and accounts info."
+          }
+        },
+        "tags": [
+          "members"
+        ],
+        "operationId": "getV2MembersMe"
+      }
+    },
+    "/deposits": {
+      "get": {
+        "summary": "Get your deposits history.",
+        "description": "Get your deposits history.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "currency",
+            "description": "Currency value contains  usd,btc,xrp",
+            "type": "string",
+            "enum": [
+              "usd",
+              "btc",
+              "xrp"
+            ],
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "description": "Set result limit.",
+            "type": "integer",
+            "format": "int32",
+            "default": 3,
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "state",
+            "type": "string",
+            "enum": [
+              "submitting",
+              "cancelled",
+              "submitted",
+              "rejected",
+              "accepted",
+              "checked",
+              "warning"
+            ],
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get your deposits history."
+          }
+        },
+        "tags": [
+          "deposits"
+        ],
+        "operationId": "getV2Deposits"
+      }
+    },
+    "/deposit": {
+      "get": {
+        "summary": "Get details of specific deposit.",
+        "description": "Get details of specific deposit.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "txid",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get details of specific deposit."
+          }
+        },
+        "tags": [
+          "deposit"
+        ],
+        "operationId": "getV2Deposit"
+      }
+    },
+    "/deposit_address": {
+      "get": {
+        "summary": "Where to deposit. The address field could be empty when a new address is generating (e.g. for bitcoin), you should try again later in that case.",
+        "description": "Where to deposit. The address field could be empty when a new address is generating (e.g. for bitcoin), you should try again later in that case.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "currency",
+            "description": "The account to which you want to deposit. Available values: usd, btc, xrp",
+            "type": "string",
+            "enum": [
+              "usd",
+              "btc",
+              "xrp"
+            ],
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Where to deposit. The address field could be empty when a new address is generating (e.g. for bitcoin), you should try again later in that case."
+          }
+        },
+        "tags": [
+          "deposit_address"
+        ],
+        "operationId": "getV2DepositAddress"
+      }
+    },
+    "/orders": {
+      "get": {
+        "summary": "Get your orders, results is paginated.",
+        "description": "Get your orders, results is paginated.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "market",
+            "description": "Unique market id. It's always in the form of xxxyyy, where xxx is the base currency code, yyy is the quote currency code, e.g. 'btcusd'. All available markets can be found at /api/markets.",
+            "type": "string",
+            "enum": [
+              "btcusd",
+              "xrpusd",
+              "btcxrp"
+            ],
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "state",
+            "description": "Filter order by state, default to 'wait' (active orders).",
+            "type": "string",
+            "default": "wait",
+            "enum": [
+              "wait",
+              "done",
+              "cancel"
+            ],
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "description": "Limit the number of returned orders, default to 100.",
+            "type": "integer",
+            "format": "int32",
+            "default": 100,
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "description": "Specify the page of paginated results.",
+            "type": "integer",
+            "format": "int32",
+            "default": 1,
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "order_by",
+            "description": "If set, returned orders will be sorted in specific order, default to 'asc'.",
+            "type": "string",
+            "default": "asc",
+            "enum": [
+              "asc",
+              "desc"
+            ],
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get your orders, results is paginated."
+          }
+        },
+        "tags": [
+          "orders"
+        ],
+        "operationId": "getV2Orders"
+      },
+      "post": {
+        "summary": "Create a Sell/Buy order.",
+        "description": "Create a Sell/Buy order.",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "market",
+            "description": "Unique market id. It's always in the form of xxxyyy, where xxx is the base currency code, yyy is the quote currency code, e.g. 'btcusd'. All available markets can be found at /api/markets.",
+            "type": "string",
+            "enum": [
+              "btcusd",
+              "xrpusd",
+              "btcxrp"
+            ],
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "side",
+            "description": "Either 'sell' or 'buy'.",
+            "type": "string",
+            "enum": [
+              "sell",
+              "buy"
+            ],
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "volume",
+            "description": "The amount user want to sell/buy. An order could be partially executed, e.g. an order sell 5 btc can be matched with a buy 3 btc order, left 2 btc to be sold; in this case the order's volume would be '5.0', its remaining_volume would be '2.0', its executed volume is '3.0'.",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "price",
+            "description": "Price for each unit. e.g. If you want to sell/buy 1 btc at 3000 USD, the price is '3000.0'",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "ord_type",
+            "type": "string",
+            "enum": [
+              "limit",
+              "market"
+            ],
+            "required": false
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Create a Sell/Buy order."
+          }
+        },
+        "tags": [
+          "orders"
+        ],
+        "operationId": "postV2Orders"
+      }
+    },
+    "/orders/multi": {
+      "post": {
+        "summary": "Create multiple sell/buy orders.",
+        "description": "Create multiple sell/buy orders.",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "market",
+            "description": "Unique market id. It's always in the form of xxxyyy, where xxx is the base currency code, yyy is the quote currency code, e.g. 'btcusd'. All available markets can be found at /api/markets.",
+            "type": "string",
+            "enum": [
+              "btcusd",
+              "xrpusd",
+              "btcxrp"
+            ],
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "orders[side]",
+            "description": "Either 'sell' or 'buy'.",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "enum": [
+              "sell",
+              "buy"
+            ],
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "orders[volume]",
+            "description": "The amount user want to sell/buy. An order could be partially executed, e.g. an order sell 5 btc can be matched with a buy 3 btc order, left 2 btc to be sold; in this case the order's volume would be '5.0', its remaining_volume would be '2.0', its executed volume is '3.0'.",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "orders[price]",
+            "description": "Price for each unit. e.g. If you want to sell/buy 1 btc at 3000 USD, the price is '3000.0'",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "orders[ord_type]",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "enum": [
+              "limit",
+              "market"
+            ],
+            "required": false
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Create multiple sell/buy orders."
+          }
+        },
+        "tags": [
+          "orders"
+        ],
+        "operationId": "postV2OrdersMulti"
+      }
+    },
+    "/orders/clear": {
+      "post": {
+        "summary": "Cancel all my orders.",
+        "description": "Cancel all my orders.",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "side",
+            "description": "If present, only sell orders (asks) or buy orders (bids) will be canncelled.",
+            "type": "string",
+            "enum": [
+              "sell",
+              "buy"
+            ],
+            "required": false
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Cancel all my orders."
+          }
+        },
+        "tags": [
+          "orders"
+        ],
+        "operationId": "postV2OrdersClear"
+      }
+    },
+    "/order": {
+      "get": {
+        "summary": "Get information of specified order.",
+        "description": "Get information of specified order.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "description": "Unique order id.",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get information of specified order."
+          }
+        },
+        "tags": [
+          "order"
+        ],
+        "operationId": "getV2Order"
+      }
+    },
+    "/order/delete": {
+      "post": {
+        "summary": "Cancel an order.",
+        "description": "Cancel an order.",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "id",
+            "description": "Unique order id.",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Cancel an order."
+          }
+        },
+        "tags": [
+          "order"
+        ],
+        "operationId": "postV2OrderDelete"
+      }
+    },
+    "/order_book": {
+      "get": {
+        "summary": "Get the order book of specified market.",
+        "description": "Get the order book of specified market.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "market",
+            "description": "Unique market id. It's always in the form of xxxyyy, where xxx is the base currency code, yyy is the quote currency code, e.g. 'btcusd'. All available markets can be found at /api/markets.",
+            "type": "string",
+            "enum": [
+              "btcusd",
+              "xrpusd",
+              "btcxrp"
+            ],
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "asks_limit",
+            "description": "Limit the number of returned sell orders. Default to 20.",
+            "type": "integer",
+            "format": "int32",
+            "default": 20,
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "bids_limit",
+            "description": "Limit the number of returned buy orders. Default to 20.",
+            "type": "integer",
+            "format": "int32",
+            "default": 20,
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get the order book of specified market."
+          }
+        },
+        "tags": [
+          "order_book"
+        ],
+        "operationId": "getV2OrderBook"
+      }
+    },
+    "/depth": {
+      "get": {
+        "summary": "Get depth or specified market. Both asks and bids are sorted from highest price to lowest.",
+        "description": "Get depth or specified market. Both asks and bids are sorted from highest price to lowest.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "market",
+            "description": "Unique market id. It's always in the form of xxxyyy, where xxx is the base currency code, yyy is the quote currency code, e.g. 'btcusd'. All available markets can be found at /api/markets.",
+            "type": "string",
+            "enum": [
+              "btcusd",
+              "xrpusd",
+              "btcxrp"
+            ],
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "description": "Limit the number of returned price levels. Default to 300.",
+            "type": "integer",
+            "format": "int32",
+            "default": 300,
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get depth or specified market. Both asks and bids are sorted from highest price to lowest."
+          }
+        },
+        "tags": [
+          "depth"
+        ],
+        "operationId": "getV2Depth"
+      }
+    },
+    "/trades": {
+      "get": {
+        "summary": "Get recent trades on market, each trade is included only once. Trades are sorted in reverse creation order.",
+        "description": "Get recent trades on market, each trade is included only once. Trades are sorted in reverse creation order.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "market",
+            "description": "Unique market id. It's always in the form of xxxyyy, where xxx is the base currency code, yyy is the quote currency code, e.g. 'btcusd'. All available markets can be found at /api/markets.",
+            "type": "string",
+            "enum": [
+              "btcusd",
+              "xrpusd",
+              "btcxrp"
+            ],
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "description": "Limit the number of returned trades. Default to 50.",
+            "type": "integer",
+            "format": "int32",
+            "default": 50,
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "timestamp",
+            "description": "An integer represents the seconds elapsed since Unix epoch. If set, only trades executed before the time will be returned.",
+            "type": "integer",
+            "format": "int32",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "from",
+            "description": "Trade id. If set, only trades created after the trade will be returned.",
+            "type": "integer",
+            "format": "int32",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "to",
+            "description": "Trade id. If set, only trades created before the trade will be returned.",
+            "type": "integer",
+            "format": "int32",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "order_by",
+            "description": "If set, returned trades will be sorted in specific order, default to 'desc'.",
+            "type": "string",
+            "default": "desc",
+            "enum": [
+              "asc",
+              "desc"
+            ],
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get recent trades on market, each trade is included only once. Trades are sorted in reverse creation order."
+          }
+        },
+        "tags": [
+          "trades"
+        ],
+        "operationId": "getV2Trades"
+      }
+    },
+    "/trades/my": {
+      "get": {
+        "summary": "Get your executed trades. Trades are sorted in reverse creation order.",
+        "description": "Get your executed trades. Trades are sorted in reverse creation order.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "market",
+            "description": "Unique market id. It's always in the form of xxxyyy, where xxx is the base currency code, yyy is the quote currency code, e.g. 'btcusd'. All available markets can be found at /api/markets.",
+            "type": "string",
+            "enum": [
+              "btcusd",
+              "xrpusd",
+              "btcxrp"
+            ],
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "description": "Limit the number of returned trades. Default to 50.",
+            "type": "integer",
+            "format": "int32",
+            "default": 50,
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "timestamp",
+            "description": "An integer represents the seconds elapsed since Unix epoch. If set, only trades executed before the time will be returned.",
+            "type": "integer",
+            "format": "int32",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "from",
+            "description": "Trade id. If set, only trades created after the trade will be returned.",
+            "type": "integer",
+            "format": "int32",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "to",
+            "description": "Trade id. If set, only trades created before the trade will be returned.",
+            "type": "integer",
+            "format": "int32",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "order_by",
+            "description": "If set, returned trades will be sorted in specific order, default to 'desc'.",
+            "type": "string",
+            "default": "desc",
+            "enum": [
+              "asc",
+              "desc"
+            ],
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get your executed trades. Trades are sorted in reverse creation order."
+          }
+        },
+        "tags": [
+          "trades"
+        ],
+        "operationId": "getV2TradesMy"
+      }
+    },
+    "/k": {
+      "get": {
+        "summary": "Get OHLC(k line) of specific market.",
+        "description": "Get OHLC(k line) of specific market.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "market",
+            "description": "Unique market id. It's always in the form of xxxyyy, where xxx is the base currency code, yyy is the quote currency code, e.g. 'btcusd'. All available markets can be found at /api/markets.",
+            "type": "string",
+            "enum": [
+              "btcusd",
+              "xrpusd",
+              "btcxrp"
+            ],
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "description": "Limit the number of returned data points, default to 30.",
+            "type": "integer",
+            "format": "int32",
+            "default": 30,
+            "minimum": 1,
+            "maximum": 10000,
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "period",
+            "description": "Time period of K line, default to 1. You can choose between 1, 5, 15, 30, 60, 120, 240, 360, 720, 1440, 4320, 10080",
+            "type": "integer",
+            "format": "int32",
+            "default": 1,
+            "enum": [
+              1,
+              5,
+              15,
+              30,
+              60,
+              120,
+              240,
+              360,
+              720,
+              1440,
+              4320,
+              10080
+            ],
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "timestamp",
+            "description": "An integer represents the seconds elapsed since Unix epoch. If set, only k-line data after that time will be returned.",
+            "type": "integer",
+            "format": "int32",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get OHLC(k line) of specific market."
+          }
+        },
+        "tags": [
+          "k"
+        ],
+        "operationId": "getV2K"
+      }
+    },
+    "/k_with_pending_trades": {
+      "get": {
+        "summary": "Get K data with pending trades, which are the trades not included in K data yet, because there's delay between trade generated and processed by K data generator.",
+        "description": "Get K data with pending trades, which are the trades not included in K data yet, because there's delay between trade generated and processed by K data generator.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "market",
+            "description": "Unique market id. It's always in the form of xxxyyy, where xxx is the base currency code, yyy is the quote currency code, e.g. 'btcusd'. All available markets can be found at /api/markets.",
+            "type": "string",
+            "enum": [
+              "btcusd",
+              "xrpusd",
+              "btcxrp"
+            ],
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "trade_id",
+            "description": "The trade id of the first trade you received.",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "description": "Limit the number of returned data points, default to 30.",
+            "type": "integer",
+            "format": "int32",
+            "default": 30,
+            "minimum": 1,
+            "maximum": 10000,
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "period",
+            "description": "Time period of K line, default to 1. You can choose between 1, 5, 15, 30, 60, 120, 240, 360, 720, 1440, 4320, 10080",
+            "type": "integer",
+            "format": "int32",
+            "default": 1,
+            "enum": [
+              1,
+              5,
+              15,
+              30,
+              60,
+              120,
+              240,
+              360,
+              720,
+              1440,
+              4320,
+              10080
+            ],
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "timestamp",
+            "description": "An integer represents the seconds elapsed since Unix epoch. If set, only k-line data after that time will be returned.",
+            "type": "integer",
+            "format": "int32",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get K data with pending trades, which are the trades not included in K data yet, because there's delay between trade generated and processed by K data generator."
+          }
+        },
+        "tags": [
+          "k_with_pending_trades"
+        ],
+        "operationId": "getV2KWithPendingTrades"
+      }
+    },
+    "/timestamp": {
+      "get": {
+        "summary": "Get server current time, in seconds since Unix epoch.",
+        "description": "Get server current time, in seconds since Unix epoch.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Get server current time, in seconds since Unix epoch."
+          }
+        },
+        "tags": [
+          "timestamp"
+        ],
+        "operationId": "getV2Timestamp"
+      }
+    }
+  }
+}
