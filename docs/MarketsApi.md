@@ -18,6 +18,17 @@ Get all available markets.
 ### Example
 ```javascript
 var PeatioSdk = require('peatio-sdk');
+var defaultClient = PeatioSdk.ApiClient.instance;
+
+// Configure API key authorization: api_key
+var api_key = defaultClient.authentications['api_key'];
+api_key.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//api_key.apiKeyPrefix = 'Token';
+
+// Configure OAuth2 access token for authorization: peatio_auth
+var peatio_auth = defaultClient.authentications['peatio_auth'];
+peatio_auth.accessToken = 'YOUR ACCESS TOKEN';
 
 var apiInstance = new PeatioSdk.MarketsApi();
 
@@ -40,7 +51,7 @@ null (empty response body)
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key), [peatio_auth](../README.md#peatio_auth)
 
 ### HTTP request headers
 

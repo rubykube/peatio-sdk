@@ -145,5 +145,19 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Authorization
 
- All endpoints do not require authorization.
+
+### api_key
+
+- **Type**: API key
+- **API key parameter name**: api_key
+- **Location**: HTTP header
+
+### peatio_auth
+
+- **Type**: OAuth
+- **Flow**: implicit
+- **Authorization URL**: http://accounts.peatio.tech/oauth/dialog
+- **Scopes**: 
+  - write:peatio: modify resources in your account
+  - read:peatio: read your resources
 

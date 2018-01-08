@@ -50,6 +50,11 @@ paths:
       responses:
         200:
           description: "Get all available markets."
+      security:
+      - peatio_auth:
+        - "write:peatio"
+        - "read:peatio"
+      - api_key: []
   /tickers:
     get:
       tags:
@@ -773,4 +778,16 @@ paths:
       responses:
         200:
           description: "Get server current time, in seconds since Unix epoch."
+securityDefinitions:
+  peatio_auth:
+    type: "oauth2"
+    authorizationUrl: "http://accounts.peatio.tech/oauth/dialog"
+    flow: "implicit"
+    scopes:
+      write:peatio: "modify resources in your account"
+      read:peatio: "read your resources"
+  api_key:
+    type: "apiKey"
+    name: "api_key"
+    in: "header"
 definitions: {}

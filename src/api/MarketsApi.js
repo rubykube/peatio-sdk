@@ -73,7 +73,7 @@
       var formParams = {
       };
 
-      var authNames = [];
+      var authNames = ['api_key', 'peatio_auth'];
       var contentTypes = [];
       var accepts = ['application/json'];
       var returnType = null;
