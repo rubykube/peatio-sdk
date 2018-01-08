@@ -18,7 +18,7 @@ Get recent trades on market, each trade is included only once. Trades are sorted
 
 ### Example
 ```javascript
-var PeatioSdk = require('peatio_sdk');
+var PeatioSdk = require('peatio-sdk');
 
 var apiInstance = new PeatioSdk.TradesApi();
 
@@ -76,7 +76,7 @@ Get your executed trades. Trades are sorted in reverse creation order.
 
 ### Example
 ```javascript
-var PeatioSdk = require('peatio_sdk');
+var PeatioSdk = require('peatio-sdk');
 
 var apiInstance = new PeatioSdk.TradesApi();
 

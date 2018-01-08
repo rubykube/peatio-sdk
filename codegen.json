@@ -1,4 +1,5 @@
 {
+  "projectName": "peatio-sdk",
   "sortParamsByRequiredFlag": "true",
   "ensureUniqueParams": "true",
   "supportsES6": "true",

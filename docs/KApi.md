@@ -17,7 +17,7 @@ Get OHLC(k line) of specific market.
 
 ### Example
 ```javascript
-var PeatioSdk = require('peatio_sdk');
+var PeatioSdk = require('peatio-sdk');
 
 var apiInstance = new PeatioSdk.KApi();
 

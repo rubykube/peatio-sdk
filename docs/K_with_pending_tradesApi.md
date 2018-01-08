@@ -17,7 +17,7 @@ Get K data with pending trades, which are the trades not included in K data yet,
 
 ### Example
 ```javascript
-var PeatioSdk = require('peatio_sdk');
+var PeatioSdk = require('peatio-sdk');
 
 var apiInstance = new PeatioSdk.K_with_pending_tradesApi();
 

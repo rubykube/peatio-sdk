@@ -17,7 +17,7 @@ Get all available markets.
 
 ### Example
 ```javascript
-var PeatioSdk = require('peatio_sdk');
+var PeatioSdk = require('peatio-sdk');
 
 var apiInstance = new PeatioSdk.MarketsApi();
 

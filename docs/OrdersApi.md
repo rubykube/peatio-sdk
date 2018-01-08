@@ -20,7 +20,7 @@ Get your orders, results is paginated.
 
 ### Example
 ```javascript
-var PeatioSdk = require('peatio_sdk');
+var PeatioSdk = require('peatio-sdk');
 
 var apiInstance = new PeatioSdk.OrdersApi();
 
@@ -76,7 +76,7 @@ Create a Sell/Buy order.
 
 ### Example
 ```javascript
-var PeatioSdk = require('peatio_sdk');
+var PeatioSdk = require('peatio-sdk');
 
 var apiInstance = new PeatioSdk.OrdersApi();
 
@@ -134,7 +134,7 @@ Cancel all my orders.
 
 ### Example
 ```javascript
-var PeatioSdk = require('peatio_sdk');
+var PeatioSdk = require('peatio-sdk');
 
 var apiInstance = new PeatioSdk.OrdersApi();
 
@@ -181,7 +181,7 @@ Create multiple sell/buy orders.
 
 ### Example
 ```javascript
-var PeatioSdk = require('peatio_sdk');
+var PeatioSdk = require('peatio-sdk');
 
 var apiInstance = new PeatioSdk.OrdersApi();
 

@@ -17,7 +17,7 @@ Get server current time, in seconds since Unix epoch.
 
 ### Example
 ```javascript
-var PeatioSdk = require('peatio_sdk');
+var PeatioSdk = require('peatio-sdk');
 
 var apiInstance = new PeatioSdk.TimestampApi();
 

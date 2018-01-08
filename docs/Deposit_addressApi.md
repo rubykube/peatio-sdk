@@ -17,7 +17,7 @@ Where to deposit. The address field could be empty when a new address is generat
 
 ### Example
 ```javascript
-var PeatioSdk = require('peatio_sdk');
+var PeatioSdk = require('peatio-sdk');
 
 var apiInstance = new PeatioSdk.Deposit_addressApi();
 

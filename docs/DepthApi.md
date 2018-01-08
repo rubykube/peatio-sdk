@@ -17,7 +17,7 @@ Get depth or specified market. Both asks and bids are sorted from highest price 
 
 ### Example
 ```javascript
-var PeatioSdk = require('peatio_sdk');
+var PeatioSdk = require('peatio-sdk');
 
 var apiInstance = new PeatioSdk.DepthApi();
 

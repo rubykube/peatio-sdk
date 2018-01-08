@@ -18,7 +18,7 @@ Get ticker of all markets.
 
 ### Example
 ```javascript
-var PeatioSdk = require('peatio_sdk');
+var PeatioSdk = require('peatio-sdk');
 
 var apiInstance = new PeatioSdk.TickersApi();
 
@@ -58,7 +58,7 @@ Get ticker of specific market.
 
 ### Example
 ```javascript
-var PeatioSdk = require('peatio_sdk');
+var PeatioSdk = require('peatio-sdk');
 
 var apiInstance = new PeatioSdk.TickersApi();
 
