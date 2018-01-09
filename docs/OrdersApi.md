@@ -1,6 +1,6 @@
 # PeatioSdk.OrdersApi
 
-All URIs are relative to *https://demo.peatio.tech/api/v2*
+All URIs are relative to *http://localhost:8000/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -121,7 +121,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/json, application/x-www-form-urlencoded
  - **Accept**: application/json
 
 <a name="postV2OrdersClear"></a>
@@ -168,7 +168,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/json, application/x-www-form-urlencoded
  - **Accept**: application/json
 
 <a name="postV2OrdersMulti"></a>
@@ -226,6 +226,6 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/json, application/x-www-form-urlencoded
  - **Accept**: application/json
 

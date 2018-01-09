@@ -113,28 +113,28 @@ api.getV2Deposit(txid, callback);
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://demo.peatio.tech/api/v2*
+All URIs are relative to *http://localhost:8000/api/v2*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *PeatioSdk.DepositApi* | [**getV2Deposit**](docs/DepositApi.md#getV2Deposit) | **GET** /deposit | Get details of specific deposit.
-*PeatioSdk.Deposit_addressApi* | [**getV2DepositAddress**](docs/Deposit_addressApi.md#getV2DepositAddress) | **GET** /deposit_address | Where to deposit. The address field could be empty when a new address is generating (e.g. for bitcoin), you should try again later in that case.
+*PeatioSdk.DepositAddressApi* | [**getV2DepositAddress**](docs/DepositAddressApi.md#getV2DepositAddress) | **GET** /deposit_address | Where to deposit. The address field could be empty when a new address is generating (e.g. for bitcoin), you should try again later in that case.
 *PeatioSdk.DepositsApi* | [**getV2Deposits**](docs/DepositsApi.md#getV2Deposits) | **GET** /deposits | Get your deposits history.
 *PeatioSdk.DepthApi* | [**getV2Depth**](docs/DepthApi.md#getV2Depth) | **GET** /depth | Get depth or specified market. Both asks and bids are sorted from highest price to lowest.
 *PeatioSdk.KApi* | [**getV2K**](docs/KApi.md#getV2K) | **GET** /k | Get OHLC(k line) of specific market.
-*PeatioSdk.K_with_pending_tradesApi* | [**getV2KWithPendingTrades**](docs/K_with_pending_tradesApi.md#getV2KWithPendingTrades) | **GET** /k_with_pending_trades | Get K data with pending trades, which are the trades not included in K data yet, because there&#39;s delay between trade generated and processed by K data generator.
+*PeatioSdk.KWithPendingTradesApi* | [**getV2KWithPendingTrades**](docs/KWithPendingTradesApi.md#getV2KWithPendingTrades) | **GET** /k_with_pending_trades | Get K data with pending trades, which are the trades not included in K data yet, because there&#39;s delay between trade generated and processed by K data generator.
 *PeatioSdk.MarketsApi* | [**getV2Markets**](docs/MarketsApi.md#getV2Markets) | **GET** /markets | Get all available markets.
 *PeatioSdk.MembersApi* | [**getV2MembersMe**](docs/MembersApi.md#getV2MembersMe) | **GET** /members/me | Get your profile and accounts info.
 *PeatioSdk.OrderApi* | [**getV2Order**](docs/OrderApi.md#getV2Order) | **GET** /order | Get information of specified order.
 *PeatioSdk.OrderApi* | [**postV2OrderDelete**](docs/OrderApi.md#postV2OrderDelete) | **POST** /order/delete | Cancel an order.
-*PeatioSdk.Order_bookApi* | [**getV2OrderBook**](docs/Order_bookApi.md#getV2OrderBook) | **GET** /order_book | Get the order book of specified market.
+*PeatioSdk.OrderBookApi* | [**getV2OrderBook**](docs/OrderBookApi.md#getV2OrderBook) | **GET** /order_book | Get the order book of specified market.
 *PeatioSdk.OrdersApi* | [**getV2Orders**](docs/OrdersApi.md#getV2Orders) | **GET** /orders | Get your orders, results is paginated.
 *PeatioSdk.OrdersApi* | [**postV2Orders**](docs/OrdersApi.md#postV2Orders) | **POST** /orders | Create a Sell/Buy order.
 *PeatioSdk.OrdersApi* | [**postV2OrdersClear**](docs/OrdersApi.md#postV2OrdersClear) | **POST** /orders/clear | Cancel all my orders.
 *PeatioSdk.OrdersApi* | [**postV2OrdersMulti**](docs/OrdersApi.md#postV2OrdersMulti) | **POST** /orders/multi | Create multiple sell/buy orders.
 *PeatioSdk.TickersApi* | [**getV2Tickers**](docs/TickersApi.md#getV2Tickers) | **GET** /tickers | Get ticker of all markets.
 *PeatioSdk.TickersApi* | [**getV2TickersMarket**](docs/TickersApi.md#getV2TickersMarket) | **GET** /tickers/{market} | Get ticker of specific market.
-*PeatioSdk.TimestampApi* | [**getV2Timestamp**](docs/TimestampApi.md#getV2Timestamp) | **GET** /timestamp | Get server current time, in seconds since Unix epoch.
+*PeatioSdk.TimestampApi* | [**timestamp**](docs/TimestampApi.md#timestamp) | **GET** /timestamp | Get server current time, in seconds since Unix epoch.
 *PeatioSdk.TradesApi* | [**getV2Trades**](docs/TradesApi.md#getV2Trades) | **GET** /trades | Get recent trades on market, each trade is included only once. Trades are sorted in reverse creation order.
 *PeatioSdk.TradesApi* | [**getV2TradesMy**](docs/TradesApi.md#getV2TradesMy) | **GET** /trades/my | Get your executed trades. Trades are sorted in reverse creation order.
 

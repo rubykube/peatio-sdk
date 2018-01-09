@@ -126,7 +126,7 @@
       };
 
       var authNames = [];
-      var contentTypes = ['application/json'];
+      var contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
       var accepts = ['application/json'];
       var returnType = null;
 

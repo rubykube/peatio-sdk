@@ -25,20 +25,20 @@
     if (!root.PeatioSdk) {
       root.PeatioSdk = {};
     }
-    root.PeatioSdk.Deposit_addressApi = factory(root.PeatioSdk.ApiClient);
+    root.PeatioSdk.OrderBookApi = factory(root.PeatioSdk.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
 
   /**
-   * Deposit_address service.
-   * @module api/Deposit_addressApi
+   * OrderBook service.
+   * @module api/OrderBookApi
    * @version 0.2.4
    */
 
   /**
-   * Constructs a new Deposit_addressApi. 
-   * @alias module:api/Deposit_addressApi
+   * Constructs a new OrderBookApi. 
+   * @alias module:api/OrderBookApi
    * @class
    * @param {module:ApiClient} apiClient Optional API client implementation to use,
    * default to {@link module:ApiClient#instance} if unspecified.
@@ -48,32 +48,38 @@
 
 
     /**
-     * Callback function to receive the result of the getV2DepositAddress operation.
-     * @callback module:api/Deposit_addressApi~getV2DepositAddressCallback
+     * Callback function to receive the result of the getV2OrderBook operation.
+     * @callback module:api/OrderBookApi~getV2OrderBookCallback
      * @param {String} error Error message, if any.
      * @param data This operation does not return a value.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * Where to deposit. The address field could be empty when a new address is generating (e.g. for bitcoin), you should try again later in that case.
-     * Where to deposit. The address field could be empty when a new address is generating (e.g. for bitcoin), you should try again later in that case.
-     * @param {module:model/String} currency The account to which you want to deposit. Available values: usd, btc, xrp
-     * @param {module:api/Deposit_addressApi~getV2DepositAddressCallback} callback The callback function, accepting three arguments: error, data, response
+     * Get the order book of specified market.
+     * Get the order book of specified market.
+     * @param {module:model/String} market Unique market id. It&#39;s always in the form of xxxyyy, where xxx is the base currency code, yyy is the quote currency code, e.g. &#39;btcusd&#39;. All available markets can be found at /api/markets.
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.asksLimit Limit the number of returned sell orders. Default to 20. (default to 20)
+     * @param {Number} opts.bidsLimit Limit the number of returned buy orders. Default to 20. (default to 20)
+     * @param {module:api/OrderBookApi~getV2OrderBookCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    this.getV2DepositAddress = function(currency, callback) {
+    this.getV2OrderBook = function(market, opts, callback) {
+      opts = opts || {};
       var postBody = null;
 
-      // verify the required parameter 'currency' is set
-      if (currency === undefined || currency === null) {
-        throw new Error("Missing the required parameter 'currency' when calling getV2DepositAddress");
+      // verify the required parameter 'market' is set
+      if (market === undefined || market === null) {
+        throw new Error("Missing the required parameter 'market' when calling getV2OrderBook");
       }
 
 
       var pathParams = {
       };
       var queryParams = {
-        'currency': currency
+        'market': market,
+        'asks_limit': opts['asksLimit'],
+        'bids_limit': opts['bidsLimit']
       };
       var headerParams = {
       };
@@ -86,7 +92,7 @@
       var returnType = null;
 
       return this.apiClient.callApi(
-        '/deposit_address', 'GET',
+        '/order_book', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

@@ -48,19 +48,20 @@
 
 
     /**
-     * Callback function to receive the result of the getV2Timestamp operation.
-     * @callback module:api/TimestampApi~getV2TimestampCallback
+     * Callback function to receive the result of the timestamp operation.
+     * @callback module:api/TimestampApi~timestampCallback
      * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
+     * @param {'Number'} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
      * Get server current time, in seconds since Unix epoch.
      * Get server current time, in seconds since Unix epoch.
-     * @param {module:api/TimestampApi~getV2TimestampCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/TimestampApi~timestampCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link 'Number'}
      */
-    this.getV2Timestamp = function(callback) {
+    this.timestamp = function(callback) {
       var postBody = null;
 
 
@@ -76,7 +77,7 @@
       var authNames = [];
       var contentTypes = [];
       var accepts = ['application/json'];
-      var returnType = null;
+      var returnType = 'Number';
 
       return this.apiClient.callApi(
         '/timestamp', 'GET',

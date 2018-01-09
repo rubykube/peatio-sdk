@@ -1,10 +1,10 @@
-# PeatioSdk.Order_bookApi
+# PeatioSdk.OrderBookApi
 
-All URIs are relative to *https://demo.peatio.tech/api/v2*
+All URIs are relative to *http://localhost:8000/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getV2OrderBook**](Order_bookApi.md#getV2OrderBook) | **GET** /order_book | Get the order book of specified market.
+[**getV2OrderBook**](OrderBookApi.md#getV2OrderBook) | **GET** /order_book | Get the order book of specified market.
 
 
 <a name="getV2OrderBook"></a>
@@ -19,7 +19,7 @@ Get the order book of specified market.
 ```javascript
 var PeatioSdk = require('peatio-sdk');
 
-var apiInstance = new PeatioSdk.Order_bookApi();
+var apiInstance = new PeatioSdk.OrderBookApi();
 
 var market = "market_example"; // String | Unique market id. It's always in the form of xxxyyy, where xxx is the base currency code, yyy is the quote currency code, e.g. 'btcusd'. All available markets can be found at /api/markets.
 

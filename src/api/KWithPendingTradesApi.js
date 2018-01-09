@@ -25,20 +25,20 @@
     if (!root.PeatioSdk) {
       root.PeatioSdk = {};
     }
-    root.PeatioSdk.K_with_pending_tradesApi = factory(root.PeatioSdk.ApiClient);
+    root.PeatioSdk.KWithPendingTradesApi = factory(root.PeatioSdk.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
 
   /**
-   * K_with_pending_trades service.
-   * @module api/K_with_pending_tradesApi
+   * KWithPendingTrades service.
+   * @module api/KWithPendingTradesApi
    * @version 0.2.4
    */
 
   /**
-   * Constructs a new K_with_pending_tradesApi. 
-   * @alias module:api/K_with_pending_tradesApi
+   * Constructs a new KWithPendingTradesApi. 
+   * @alias module:api/KWithPendingTradesApi
    * @class
    * @param {module:ApiClient} apiClient Optional API client implementation to use,
    * default to {@link module:ApiClient#instance} if unspecified.
@@ -49,7 +49,7 @@
 
     /**
      * Callback function to receive the result of the getV2KWithPendingTrades operation.
-     * @callback module:api/K_with_pending_tradesApi~getV2KWithPendingTradesCallback
+     * @callback module:api/KWithPendingTradesApi~getV2KWithPendingTradesCallback
      * @param {String} error Error message, if any.
      * @param data This operation does not return a value.
      * @param {String} response The complete HTTP response.
@@ -64,7 +64,7 @@
      * @param {Number} opts.limit Limit the number of returned data points, default to 30. (default to 30)
      * @param {module:model/Number} opts.period Time period of K line, default to 1. You can choose between 1, 5, 15, 30, 60, 120, 240, 360, 720, 1440, 4320, 10080 (default to 1)
      * @param {Number} opts.timestamp An integer represents the seconds elapsed since Unix epoch. If set, only k-line data after that time will be returned.
-     * @param {module:api/K_with_pending_tradesApi~getV2KWithPendingTradesCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/KWithPendingTradesApi~getV2KWithPendingTradesCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.getV2KWithPendingTrades = function(market, tradeId, opts, callback) {
       opts = opts || {};

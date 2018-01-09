@@ -1,10 +1,10 @@
-# PeatioSdk.K_with_pending_tradesApi
+# PeatioSdk.KWithPendingTradesApi
 
-All URIs are relative to *https://demo.peatio.tech/api/v2*
+All URIs are relative to *http://localhost:8000/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getV2KWithPendingTrades**](K_with_pending_tradesApi.md#getV2KWithPendingTrades) | **GET** /k_with_pending_trades | Get K data with pending trades, which are the trades not included in K data yet, because there&#39;s delay between trade generated and processed by K data generator.
+[**getV2KWithPendingTrades**](KWithPendingTradesApi.md#getV2KWithPendingTrades) | **GET** /k_with_pending_trades | Get K data with pending trades, which are the trades not included in K data yet, because there&#39;s delay between trade generated and processed by K data generator.
 
 
 <a name="getV2KWithPendingTrades"></a>
@@ -19,7 +19,7 @@ Get K data with pending trades, which are the trades not included in K data yet,
 ```javascript
 var PeatioSdk = require('peatio-sdk');
 
-var apiInstance = new PeatioSdk.K_with_pending_tradesApi();
+var apiInstance = new PeatioSdk.KWithPendingTradesApi();
 
 var market = "market_example"; // String | Unique market id. It's always in the form of xxxyyy, where xxx is the base currency code, yyy is the quote currency code, e.g. 'btcusd'. All available markets can be found at /api/markets.
 

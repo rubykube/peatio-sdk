@@ -1,15 +1,15 @@
 # PeatioSdk.TimestampApi
 
-All URIs are relative to *https://demo.peatio.tech/api/v2*
+All URIs are relative to *http://localhost:8000/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getV2Timestamp**](TimestampApi.md#getV2Timestamp) | **GET** /timestamp | Get server current time, in seconds since Unix epoch.
+[**timestamp**](TimestampApi.md#timestamp) | **GET** /timestamp | Get server current time, in seconds since Unix epoch.
 
 
-<a name="getV2Timestamp"></a>
-# **getV2Timestamp**
-> getV2Timestamp()
+<a name="timestamp"></a>
+# **timestamp**
+> &#39;Number&#39; timestamp()
 
 Get server current time, in seconds since Unix epoch.
 
@@ -25,10 +25,10 @@ var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.getV2Timestamp(callback);
+apiInstance.timestamp(callback);
 ```
 
 ### Parameters
@@ -36,7 +36,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-null (empty response body)
+**&#39;Number&#39;**
 
 ### Authorization
 

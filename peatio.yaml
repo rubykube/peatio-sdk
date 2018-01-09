@@ -3,8 +3,11 @@ swagger: "2.0"
 info:
   version: "0.2.4"
   title: "Peatio SDK"
-host: "demo.peatio.tech"
+host: "localhost:8000"
 basePath: "/api/v2"
+schemes:
+  - http
+  - https
 tags:
 - name: "markets"
   description: "Operations about markets"
@@ -16,22 +19,22 @@ tags:
   description: "Operations about deposits"
 - name: "deposit"
   description: "Operations about deposits"
-- name: "deposit_address"
-  description: "Operations about deposit_addresses"
+- name: "depositAddress"
+  description: "Operations about deposit addresses"
 - name: "orders"
   description: "Operations about orders"
 - name: "order"
   description: "Operations about orders"
-- name: "order_book"
-  description: "Operations about order_books"
+- name: "orderBook"
+  description: "Operations about order books"
 - name: "depth"
   description: "Operations about depths"
 - name: "trades"
   description: "Operations about trades"
 - name: "k"
-  description: "Operations about ks"
-- name: "k_with_pending_trades"
-  description: "Operations about k_with_pending_trades"
+  description: "Operations about k"
+- name: "kWithPendingTrades"
+  description: "Operations about k with pending trades"
 - name: "timestamp"
   description: "Operations about timestamps"
 produces:
@@ -85,10 +88,7 @@ paths:
           \ All available markets can be found at /api/markets."
         required: true
         type: "string"
-        enum:
-        - "btcusd"
-        - "xrpusd"
-        - "btcxrp"
+        enum: ["btcusd", "xrpusd", "btcxrp"]
       responses:
         200:
           description: "Get ticker of specific market."
@@ -120,10 +120,7 @@ paths:
         description: "Currency value contains  usd,btc,xrp"
         required: false
         type: "string"
-        enum:
-        - "usd"
-        - "btc"
-        - "xrp"
+        enum: ["usd", "btc", "xrp"]
       - name: "limit"
         in: "query"
         description: "Set result limit."
@@ -166,7 +163,7 @@ paths:
   /deposit_address:
     get:
       tags:
-      - "deposit_address"
+      - "depositAddress"
       summary: "Where to deposit. The address field could be empty when a new address\
         \ is generating (e.g. for bitcoin), you should try again later in that case."
       description: "Where to deposit. The address field could be empty when a new\
@@ -182,10 +179,7 @@ paths:
           \ usd, btc, xrp"
         required: true
         type: "string"
-        enum:
-        - "usd"
-        - "btc"
-        - "xrp"
+        enum: ["usd", "btc", "xrp"]
       responses:
         200:
           description: "Where to deposit. The address field could be empty when a\
@@ -208,10 +202,7 @@ paths:
           \ All available markets can be found at /api/markets."
         required: true
         type: "string"
-        enum:
-        - "btcusd"
-        - "xrpusd"
-        - "btcxrp"
+        enum: ["btcusd", "xrpusd", "btcxrp"]
       - name: "state"
         in: "query"
         description: "Filter order by state, default to 'wait' (active orders)."
@@ -243,9 +234,7 @@ paths:
         required: false
         type: "string"
         default: "asc"
-        enum:
-        - "asc"
-        - "desc"
+        enum: ["asc", "desc"]
       responses:
         200:
           description: "Get your orders, results is paginated."
@@ -257,6 +246,7 @@ paths:
       operationId: "postV2Orders"
       consumes:
       - "application/json"
+      - "application/x-www-form-urlencoded"
       produces:
       - "application/json"
       parameters:
@@ -267,18 +257,13 @@ paths:
           \ All available markets can be found at /api/markets."
         required: true
         type: "string"
-        enum:
-        - "btcusd"
-        - "xrpusd"
-        - "btcxrp"
+        enum: ["btcusd", "xrpusd", "btcxrp"]
       - name: "side"
         in: "formData"
         description: "Either 'sell' or 'buy'."
         required: true
         type: "string"
-        enum:
-        - "sell"
-        - "buy"
+        enum: ["sell", "buy"]
       - name: "volume"
         in: "formData"
         description: "The amount user want to sell/buy. An order could be partially\
@@ -312,6 +297,7 @@ paths:
       operationId: "postV2OrdersMulti"
       consumes:
       - "application/json"
+      - "application/x-www-form-urlencoded"
       produces:
       - "application/json"
       parameters:
@@ -375,6 +361,7 @@ paths:
       operationId: "postV2OrdersClear"
       consumes:
       - "application/json"
+      - "application/x-www-form-urlencoded"
       produces:
       - "application/json"
       parameters:
@@ -384,9 +371,7 @@ paths:
           \ be canncelled."
         required: false
         type: "string"
-        enum:
-        - "sell"
-        - "buy"
+        enum: ["sell", "buy"]
       responses:
         201:
           description: "Cancel all my orders."
@@ -418,6 +403,7 @@ paths:
       operationId: "postV2OrderDelete"
       consumes:
       - "application/json"
+      - "application/x-www-form-urlencoded"
       produces:
       - "application/json"
       parameters:
@@ -433,7 +419,7 @@ paths:
   /order_book:
     get:
       tags:
-      - "order_book"
+      - "orderBook"
       summary: "Get the order book of specified market."
       description: "Get the order book of specified market."
       operationId: "getV2OrderBook"
@@ -669,19 +655,7 @@ paths:
         type: "integer"
         default: 1
         format: "int32"
-        enum:
-        - 1
-        - 5
-        - 15
-        - 30
-        - 60
-        - 120
-        - 240
-        - 360
-        - 720
-        - 1440
-        - 4320
-        - 10080
+        enum: [1, 5, 15, 30, 60, 120, 240, 360, 720, 1440, 4320, 10080]
       - name: "timestamp"
         in: "query"
         description: "An integer represents the seconds elapsed since Unix epoch.\
@@ -695,7 +669,7 @@ paths:
   /k_with_pending_trades:
     get:
       tags:
-      - "k_with_pending_trades"
+      - "kWithPendingTrades"
       summary: "Get K data with pending trades, which are the trades not included\
         \ in K data yet, because there's delay between trade generated and processed\
         \ by K data generator."
@@ -740,19 +714,7 @@ paths:
         type: "integer"
         default: 1
         format: "int32"
-        enum:
-        - 1
-        - 5
-        - 15
-        - 30
-        - 60
-        - 120
-        - 240
-        - 360
-        - 720
-        - 1440
-        - 4320
-        - 10080
+        enum: [1, 5, 15, 30, 60, 120, 240, 360, 720, 1440, 4320, 10080]
       - name: "timestamp"
         in: "query"
         description: "An integer represents the seconds elapsed since Unix epoch.\
@@ -768,16 +730,18 @@ paths:
   /timestamp:
     get:
       tags:
-      - "timestamp"
-      summary: "Get server current time, in seconds since Unix epoch."
-      description: "Get server current time, in seconds since Unix epoch."
-      operationId: "getV2Timestamp"
+      - timestamp
+      summary: Get server current time, in seconds since Unix epoch.
+      description: Get server current time, in seconds since Unix epoch.
+      operationId: timestamp
       produces:
-      - "application/json"
+      - application/json
       parameters: []
       responses:
         200:
-          description: "Get server current time, in seconds since Unix epoch."
+          description: Get server current time, in seconds since Unix epoch.
+          schema:
+            type: integer
 securityDefinitions:
   peatio_auth:
     type: "oauth2"
