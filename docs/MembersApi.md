@@ -1,6 +1,6 @@
 # PeatioSdk.MembersApi
 
-All URIs are relative to *http://localhost:8000/api/v2*
+All URIs are relative to *http://demo.peatio.tech/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="getV2MembersMe"></a>
 # **getV2MembersMe**
-> getV2MembersMe()
+> Member getV2MembersMe()
 
 Get your profile and accounts info.
 
@@ -18,6 +18,13 @@ Get your profile and accounts info.
 ### Example
 ```javascript
 var PeatioSdk = require('peatio-sdk');
+var defaultClient = PeatioSdk.ApiClient.instance;
+
+// Configure API key authorization: jwt
+var jwt = defaultClient.authentications['jwt'];
+jwt.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//jwt.apiKeyPrefix = 'Token';
 
 var apiInstance = new PeatioSdk.MembersApi();
 
@@ -25,7 +32,7 @@ var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 };
 apiInstance.getV2MembersMe(callback);
@@ -36,11 +43,11 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-null (empty response body)
+[**Member**](Member.md)
 
 ### Authorization
 
-No authorization required
+[jwt](../README.md#jwt)
 
 ### HTTP request headers
 

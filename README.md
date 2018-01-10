@@ -113,7 +113,7 @@ api.getV2Deposit(txid, callback);
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://localhost:8000/api/v2*
+All URIs are relative to *http://demo.peatio.tech/api/v2*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -141,23 +141,16 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
+ - [PeatioSdk.Account](docs/Account.md)
+ - [PeatioSdk.Member](docs/Member.md)
 
 
 ## Documentation for Authorization
 
 
-### api_key
+### jwt
 
 - **Type**: API key
-- **API key parameter name**: api_key
+- **API key parameter name**: Authorization
 - **Location**: HTTP header
-
-### peatio_auth
-
-- **Type**: OAuth
-- **Flow**: implicit
-- **Authorization URL**: http://accounts.peatio.tech/oauth/dialog
-- **Scopes**: 
-  - write:peatio: modify resources in your account
-  - read:peatio: read your resources
 

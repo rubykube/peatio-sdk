@@ -3,7 +3,7 @@ swagger: "2.0"
 info:
   version: "0.2.4"
   title: "Peatio SDK"
-host: "localhost:8000"
+host: "demo.peatio.tech"
 basePath: "/api/v2"
 schemes:
   - http
@@ -54,10 +54,7 @@ paths:
         200:
           description: "Get all available markets."
       security:
-      - peatio_auth:
-        - "write:peatio"
-        - "read:peatio"
-      - api_key: []
+      - jwt: []
   /tickers:
     get:
       tags:
@@ -102,9 +99,13 @@ paths:
       produces:
       - "application/json"
       parameters: []
+      security:
+        - jwt: []
       responses:
         200:
           description: "Get your profile and accounts info."
+          schema:
+            $ref: "#/definitions/Member"
   /deposits:
     get:
       tags:
@@ -743,15 +744,40 @@ paths:
           schema:
             type: integer
 securityDefinitions:
-  peatio_auth:
-    type: "oauth2"
-    authorizationUrl: "http://accounts.peatio.tech/oauth/dialog"
-    flow: "implicit"
-    scopes:
-      write:peatio: "modify resources in your account"
-      read:peatio: "read your resources"
-  api_key:
-    type: "apiKey"
-    name: "api_key"
-    in: "header"
-definitions: {}
+  jwt:
+    type: apiKey
+    name: Authorization
+    in: header
+definitions:
+  Account:
+    type: object
+    properties:
+      currency:
+        type: string
+        enum:
+          - usd
+          - btc
+          - xrp
+      balance:
+        type: number
+        example: 0.0
+      locked:
+        type: number
+        example: 0.0
+  Member:
+    type: object
+    properties:
+      sn:
+        type: string
+        example: PEAUV8S2JNPTIO
+      name:
+        type: string
+        example: John Doe
+      email:
+        type: string
+        example: jdoe@peatio.tech
+      accounts:
+        type: array
+        items:
+          $ref: "#/definitions/Account"
+

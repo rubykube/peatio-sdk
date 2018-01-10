@@ -1,6 +1,6 @@
 # PeatioSdk.DepositsApi
 
-All URIs are relative to *http://localhost:8000/api/v2*
+All URIs are relative to *http://demo.peatio.tech/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

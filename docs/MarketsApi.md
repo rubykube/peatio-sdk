@@ -1,6 +1,6 @@
 # PeatioSdk.MarketsApi
 
-All URIs are relative to *http://localhost:8000/api/v2*
+All URIs are relative to *http://demo.peatio.tech/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -20,15 +20,11 @@ Get all available markets.
 var PeatioSdk = require('peatio-sdk');
 var defaultClient = PeatioSdk.ApiClient.instance;
 
-// Configure API key authorization: api_key
-var api_key = defaultClient.authentications['api_key'];
-api_key.apiKey = 'YOUR API KEY';
+// Configure API key authorization: jwt
+var jwt = defaultClient.authentications['jwt'];
+jwt.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//api_key.apiKeyPrefix = 'Token';
-
-// Configure OAuth2 access token for authorization: peatio_auth
-var peatio_auth = defaultClient.authentications['peatio_auth'];
-peatio_auth.accessToken = 'YOUR ACCESS TOKEN';
+//jwt.apiKeyPrefix = 'Token';
 
 var apiInstance = new PeatioSdk.MarketsApi();
 
@@ -51,7 +47,7 @@ null (empty response body)
 
 ### Authorization
 
-[api_key](../README.md#api_key), [peatio_auth](../README.md#peatio_auth)
+[jwt](../README.md#jwt)
 
 ### HTTP request headers
 
