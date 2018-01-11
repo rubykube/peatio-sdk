@@ -1,6 +1,6 @@
 {
   "name": "peatio-sdk",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "Peatio JavaScript SDK and API client",
   "homepage": "https://github.com/peatio/peatio-sdk",
   "bugs": {
