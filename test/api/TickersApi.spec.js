@@ -53,21 +53,28 @@
     describe('getV2Tickers', function() {
       it('should call getV2Tickers successfully', function(done) {
         //uncomment below and update the code to test getV2Tickers
-        //instance.getV2Tickers(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
+        instance.getV2Tickers(function(error, data, request) {
+          if (error) throw error;
+
+          if (Object.keys(data).length > 0) {
+            let key = Object.keys(data)[0];
+            expect(data[key]).to.be.a(PeatioSdk.TickerInfo);
+          }
+          done();
+        });
       });
     });
     describe('getV2TickersMarket', function() {
       it('should call getV2TickersMarket successfully', function(done) {
         //uncomment below and update the code to test getV2TickersMarket
-        //instance.getV2TickersMarket(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
+        let market = 'btcusd';
+
+        instance.getV2TickersMarket(market, function(error, data, request) {
+          if (error) throw error;
+
+          expect(data).to.be.a(PeatioSdk.TickerInfo);
+          done();
+        });
       });
     });
   });

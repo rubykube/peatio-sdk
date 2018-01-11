@@ -53,6 +53,10 @@ paths:
       responses:
         200:
           description: "Get all available markets."
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/Market"
       security:
       - jwt: []
   /tickers:
@@ -68,6 +72,10 @@ paths:
       responses:
         200:
           description: "Get ticker of all markets."
+          schema:
+            type: object
+            additionalProperties:
+              $ref: "#/definitions/TickerInfo"
   /tickers/{market}:
     get:
       tags:
@@ -89,6 +97,9 @@ paths:
       responses:
         200:
           description: "Get ticker of specific market."
+          schema:
+            type: object
+            $ref: "#/definitions/TickerInfo"
   /members/me:
     get:
       tags:
@@ -780,4 +791,39 @@ definitions:
         type: array
         items:
           $ref: "#/definitions/Account"
-
+  Market:
+    type: object
+    properties:
+      id:
+        type: string
+        example: btcusd
+      name:
+        type: string
+        example: BTC/USD
+  TickerInfo:
+    type: object
+    properties:
+      at:
+        type: integer
+        example: 1515672822
+      ticker:
+        type: object
+        properties:
+          buy:
+            type: number
+            example: 3000.0
+          sell:
+            type: number
+            example: 3100.0
+          low:
+            type: number
+            example: 3000.0
+          high:
+            type: number
+            example: 3000.0
+          last:
+            type: number
+            example: 3000.0
+          vol:
+            type: number
+            example: 0.11

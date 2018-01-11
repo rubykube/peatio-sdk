@@ -142,7 +142,10 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [PeatioSdk.Account](docs/Account.md)
+ - [PeatioSdk.Market](docs/Market.md)
  - [PeatioSdk.Member](docs/Member.md)
+ - [PeatioSdk.TickerInfo](docs/TickerInfo.md)
+ - [PeatioSdk.TickerInfoTicker](docs/TickerInfoTicker.md)
 
 
 ## Documentation for Authorization

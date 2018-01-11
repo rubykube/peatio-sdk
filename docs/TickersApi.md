@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="getV2Tickers"></a>
 # **getV2Tickers**
-> getV2Tickers()
+> {&#39;String&#39;: TickerInfo} getV2Tickers()
 
 Get ticker of all markets.
 
@@ -26,7 +26,7 @@ var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 };
 apiInstance.getV2Tickers(callback);
@@ -37,7 +37,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-null (empty response body)
+[**{&#39;String&#39;: TickerInfo}**](TickerInfo.md)
 
 ### Authorization
 
@@ -50,7 +50,7 @@ No authorization required
 
 <a name="getV2TickersMarket"></a>
 # **getV2TickersMarket**
-> getV2TickersMarket(market)
+> TickerInfo getV2TickersMarket(market)
 
 Get ticker of specific market.
 
@@ -69,7 +69,7 @@ var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 };
 apiInstance.getV2TickersMarket(market, callback);
@@ -83,7 +83,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**TickerInfo**](TickerInfo.md)
 
 ### Authorization
 

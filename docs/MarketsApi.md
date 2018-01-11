@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="getV2Markets"></a>
 # **getV2Markets**
-> getV2Markets()
+> [Market] getV2Markets()
 
 Get all available markets.
 
@@ -32,7 +32,7 @@ var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 };
 apiInstance.getV2Markets(callback);
@@ -43,7 +43,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-null (empty response body)
+[**[Market]**](Market.md)
 
 ### Authorization
 

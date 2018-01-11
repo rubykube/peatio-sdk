@@ -16,32 +16,32 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Account'], factory);
+    define(['ApiClient'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Account'));
+    module.exports = factory(require('../ApiClient'));
   } else {
     // Browser globals (root is window)
     if (!root.PeatioSdk) {
       root.PeatioSdk = {};
     }
-    root.PeatioSdk.Member = factory(root.PeatioSdk.ApiClient, root.PeatioSdk.Account);
+    root.PeatioSdk.Market = factory(root.PeatioSdk.ApiClient);
   }
-}(this, function(ApiClient, Account) {
+}(this, function(ApiClient) {
   'use strict';
 
 
 
 
   /**
-   * The Member model module.
-   * @module model/Member
+   * The Market model module.
+   * @module model/Market
    * @version 0.2.4
    */
 
   /**
-   * Constructs a new <code>Member</code>.
-   * @alias module:model/Member
+   * Constructs a new <code>Market</code>.
+   * @alias module:model/Market
    * @class
    */
   var exports = function() {
@@ -49,53 +49,37 @@
 
 
 
-
-
   };
 
   /**
-   * Constructs a <code>Member</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>Market</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/Member} obj Optional instance to populate.
-   * @return {module:model/Member} The populated <code>Member</code> instance.
+   * @param {module:model/Market} obj Optional instance to populate.
+   * @return {module:model/Market} The populated <code>Market</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('sn')) {
-        obj['sn'] = ApiClient.convertToType(data['sn'], 'String');
+      if (data.hasOwnProperty('id')) {
+        obj['id'] = ApiClient.convertToType(data['id'], 'String');
       }
       if (data.hasOwnProperty('name')) {
         obj['name'] = ApiClient.convertToType(data['name'], 'String');
-      }
-      if (data.hasOwnProperty('email')) {
-        obj['email'] = ApiClient.convertToType(data['email'], 'String');
-      }
-      if (data.hasOwnProperty('accounts')) {
-        obj['accounts'] = ApiClient.convertToType(data['accounts'], [Account]);
       }
     }
     return obj;
   }
 
   /**
-   * @member {String} sn
+   * @member {String} id
    */
-  exports.prototype['sn'] = undefined;
+  exports.prototype['id'] = undefined;
   /**
    * @member {String} name
    */
   exports.prototype['name'] = undefined;
-  /**
-   * @member {String} email
-   */
-  exports.prototype['email'] = undefined;
-  /**
-   * @member {Array.<module:model/Account>} accounts
-   */
-  exports.prototype['accounts'] = undefined;
 
 
 

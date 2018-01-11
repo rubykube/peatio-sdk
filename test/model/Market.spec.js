@@ -30,7 +30,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new PeatioSdk.MarketsApi();
+    instance = new PeatioSdk.Market();
   });
 
   var getProperty = function(object, getter, property) {
@@ -49,20 +49,25 @@
       object[property] = value;
   }
 
-  describe('MarketsApi', function() {
-    describe('getV2Markets', function() {
-      it('should call getV2Markets successfully', function(done) {
-        //uncomment below and update the code to test getV2Markets
-        instance.getV2Markets(function(error, data, request) {
-          if (error) throw error;
-
-          if (data.length > 0)
-            expect(data[0]).to.be.a(PeatioSdk.Market)
-
-          done();
-        });
-      });
+  describe('Market', function() {
+    it('should create an instance of Market', function() {
+      // uncomment below and update the code to test Market
+      //var instane = new PeatioSdk.Market();
+      //expect(instance).to.be.a(PeatioSdk.Market);
     });
+
+    it('should have the property id (base name: "id")', function() {
+      // uncomment below and update the code to test the property id
+      //var instane = new PeatioSdk.Market();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property name (base name: "name")', function() {
+      // uncomment below and update the code to test the property name
+      //var instane = new PeatioSdk.Market();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));
