@@ -1,9 +1,32 @@
 {
   "name": "peatio-sdk",
   "version": "0.2.4",
-  "description": "ERROR_UNKNOWN",
-  "license": "Unlicense",
-  "main": "src/index.js",
+  "description": "Peatio JavaScript SDK and API client",
+  "homepage": "https://github.com/peatio/peatio-sdk",
+  "bugs": {
+    "url": "https://github.com/peatio/peatio-sdk/issues"
+  },
+  "license": "LGPL-3.0",
+  "author": {
+    "name": "Louis Bellet",
+    "email": "lbellet@heliostech.fr"
+  },
+  "contributors": [
+    {
+      "name": "Dimitri Koval",
+      "email": "dkoval@heliostech.fr"
+    },
+    {
+      "name": "Bohdan Suprun",
+      "email": "bsuprun@heliostech.fr"
+    }
+  ],
+  "files": ["src"],
+  "main": "src/sdk.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/peatio/peatio-sdk.git"
+  },
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha --recursive"
   },
