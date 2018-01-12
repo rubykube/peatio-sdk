@@ -55,7 +55,7 @@
      * @type {Array.<String>}
      */
     this.authentications = {
-      'jwt': {type: 'apiKey', 'in': 'header', name: 'Authorization'}
+      'jwt': {type: 'oauth2'}
     };
     /**
      * The default HTTP headers to be included for all API calls.

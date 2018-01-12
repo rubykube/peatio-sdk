@@ -20,11 +20,9 @@ Get all available markets.
 var PeatioSdk = require('peatio-sdk');
 var defaultClient = PeatioSdk.ApiClient.instance;
 
-// Configure API key authorization: jwt
+// Configure OAuth2 access token for authorization: jwt
 var jwt = defaultClient.authentications['jwt'];
-jwt.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//jwt.apiKeyPrefix = 'Token';
+jwt.accessToken = 'YOUR ACCESS TOKEN';
 
 var apiInstance = new PeatioSdk.MarketsApi();
 

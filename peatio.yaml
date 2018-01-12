@@ -58,7 +58,9 @@ paths:
             items:
               $ref: "#/definitions/Market"
       security:
-      - jwt: []
+        - jwt:
+          - "write:peatio"
+          - "read:peatio"
   /tickers:
     get:
       tags:
@@ -111,7 +113,9 @@ paths:
       - "application/json"
       parameters: []
       security:
-        - jwt: []
+        - jwt:
+          - "write:peatio"
+          - "read:peatio"
       responses:
         200:
           description: "Get your profile and accounts info."
@@ -756,9 +760,12 @@ paths:
             type: integer
 securityDefinitions:
   jwt:
-    type: apiKey
-    name: Authorization
-    in: header
+    type: oauth2
+    authorizationUrl: "https://demo.peatio.tech/auth/auth0"
+    flow: "implicit"
+    scopes:
+      write:peatio: "base write scope"
+      read:peatio: "base read scope"
 definitions:
   Account:
     type: object

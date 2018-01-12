@@ -153,7 +153,10 @@ Class | Method | HTTP request | Description
 
 ### jwt
 
-- **Type**: API key
-- **API key parameter name**: Authorization
-- **Location**: HTTP header
+- **Type**: OAuth
+- **Flow**: implicit
+- **Authorization URL**: https://demo.peatio.tech/auth/auth0
+- **Scopes**: 
+  - write:peatio: base write scope
+  - read:peatio: base read scope
 

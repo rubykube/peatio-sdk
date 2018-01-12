@@ -12,13 +12,11 @@
   PeatioSDK.init = function (jwtToken, options) {
     var api = PeatioSDK.ApiClient.instance
 
+    api.authentications.jwt.accessToken = jwtToken
+
     if (options && options.basePath) {
       api.basePath = options.basePath.replace(/\/+$/, '')
     }
-
-    var jwt = api.authentications['jwt']
-    jwt.apiKeyPrefix = 'Bearer'
-    jwt.apiKey = jwtToken
 
     return api
   }
