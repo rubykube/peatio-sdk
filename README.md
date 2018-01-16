@@ -95,6 +95,12 @@ Please follow the [installation](#installation) instruction and execute the foll
 ```javascript
 var PeatioSdk = require('peatio-sdk');
 
+var defaultClient = PeatioSdk.ApiClient.instance;
+
+// Configure OAuth2 access token for authorization: jwt
+var jwt = defaultClient.authentications['jwt'];
+jwt.accessToken = "YOUR ACCESS TOKEN"
+
 var api = new PeatioSdk.DepositApi()
 
 var txid = "txid_example"; // {String} 

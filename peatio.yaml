@@ -71,6 +71,10 @@ paths:
       produces:
       - "application/json"
       parameters: []
+      security:
+        - jwt:
+          - "write:peatio"
+          - "read:peatio"
       responses:
         200:
           description: "Get ticker of all markets."
@@ -96,6 +100,10 @@ paths:
         required: true
         type: "string"
         enum: ["btcusd", "xrpusd", "btcxrp"]
+      security:
+        - jwt:
+          - "write:peatio"
+          - "read:peatio"
       responses:
         200:
           description: "Get ticker of specific market."
@@ -156,6 +164,10 @@ paths:
         - "accepted"
         - "checked"
         - "warning"
+      security:
+        - jwt:
+          - "write:peatio"
+          - "read:peatio"
       responses:
         200:
           description: "Get your deposits history."
@@ -173,6 +185,10 @@ paths:
         in: "query"
         required: true
         type: "string"
+      security:
+        - jwt:
+          - "write:peatio"
+          - "read:peatio"
       responses:
         200:
           description: "Get details of specific deposit."
@@ -196,6 +212,10 @@ paths:
         required: true
         type: "string"
         enum: ["usd", "btc", "xrp"]
+      security:
+        - jwt:
+          - "write:peatio"
+          - "read:peatio"
       responses:
         200:
           description: "Where to deposit. The address field could be empty when a\
@@ -251,6 +271,10 @@ paths:
         type: "string"
         default: "asc"
         enum: ["asc", "desc"]
+      security:
+        - jwt:
+          - "write:peatio"
+          - "read:peatio"
       responses:
         200:
           description: "Get your orders, results is paginated."
@@ -301,6 +325,10 @@ paths:
         enum:
         - "limit"
         - "market"
+      security:
+        - jwt:
+          - "write:peatio"
+          - "read:peatio"
       responses:
         201:
           description: "Create a Sell/Buy order."
@@ -365,6 +393,10 @@ paths:
         enum:
         - "limit"
         - "market"
+      security:
+        - jwt:
+          - "write:peatio"
+          - "read:peatio"
       responses:
         201:
           description: "Create multiple sell/buy orders."
@@ -388,6 +420,10 @@ paths:
         required: false
         type: "string"
         enum: ["sell", "buy"]
+      security:
+        - jwt:
+          - "write:peatio"
+          - "read:peatio"
       responses:
         201:
           description: "Cancel all my orders."
@@ -407,6 +443,10 @@ paths:
         required: true
         type: "integer"
         format: "int32"
+      security:
+        - jwt:
+          - "write:peatio"
+          - "read:peatio"
       responses:
         200:
           description: "Get information of specified order."
@@ -429,6 +469,10 @@ paths:
         required: true
         type: "integer"
         format: "int32"
+      security:
+        - jwt:
+          - "write:peatio"
+          - "read:peatio"
       responses:
         201:
           description: "Cancel an order."
@@ -467,6 +511,10 @@ paths:
         type: "integer"
         default: 20
         format: "int32"
+      security:
+        - jwt:
+          - "write:peatio"
+          - "read:peatio"
       responses:
         200:
           description: "Get the order book of specified market."
@@ -500,6 +548,10 @@ paths:
         type: "integer"
         default: 300
         format: "int32"
+      security:
+        - jwt:
+          - "write:peatio"
+          - "read:peatio"
       responses:
         200:
           description: "Get depth or specified market. Both asks and bids are sorted\
@@ -565,6 +617,10 @@ paths:
         enum:
         - "asc"
         - "desc"
+      security:
+        - jwt:
+          - "write:peatio"
+          - "read:peatio"
       responses:
         200:
           description: "Get recent trades on market, each trade is included only once.\
@@ -629,6 +685,10 @@ paths:
         enum:
         - "asc"
         - "desc"
+      security:
+        - jwt:
+          - "write:peatio"
+          - "read:peatio"
       responses:
         200:
           description: "Get your executed trades. Trades are sorted in reverse creation\
@@ -679,6 +739,10 @@ paths:
         required: false
         type: "integer"
         format: "int32"
+      security:
+        - jwt:
+          - "write:peatio"
+          - "read:peatio"
       responses:
         200:
           description: "Get OHLC(k line) of specific market."
@@ -738,6 +802,10 @@ paths:
         required: false
         type: "integer"
         format: "int32"
+      security:
+        - jwt:
+          - "write:peatio"
+          - "read:peatio"
       responses:
         200:
           description: "Get K data with pending trades, which are the trades not included\

@@ -90,7 +90,7 @@
       var formParams = {
       };
 
-      var authNames = [];
+      var authNames = ['jwt'];
       var contentTypes = [];
       var accepts = ['application/json'];
       var returnType = null;
@@ -155,7 +155,7 @@
         'ord_type': opts['ordType']
       };
 
-      var authNames = [];
+      var authNames = ['jwt'];
       var contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
       var accepts = ['application/json'];
       var returnType = null;
@@ -197,7 +197,7 @@
         'side': opts['side']
       };
 
-      var authNames = [];
+      var authNames = ['jwt'];
       var contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
       var accepts = ['application/json'];
       var returnType = null;
@@ -262,7 +262,7 @@
         'orders[ord_type]': this.apiClient.buildCollectionParam(opts['ordersOrdType'], 'csv')
       };
 
-      var authNames = [];
+      var authNames = ['jwt'];
       var contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
       var accepts = ['application/json'];
       var returnType = null;

@@ -21,6 +21,11 @@ Get your orders, results is paginated.
 ### Example
 ```javascript
 var PeatioSdk = require('peatio-sdk');
+var defaultClient = PeatioSdk.ApiClient.instance;
+
+// Configure OAuth2 access token for authorization: jwt
+var jwt = defaultClient.authentications['jwt'];
+jwt.accessToken = 'YOUR ACCESS TOKEN';
 
 var apiInstance = new PeatioSdk.OrdersApi();
 
@@ -59,7 +64,7 @@ null (empty response body)
 
 ### Authorization
 
-No authorization required
+[jwt](../README.md#jwt)
 
 ### HTTP request headers
 
@@ -77,6 +82,11 @@ Create a Sell/Buy order.
 ### Example
 ```javascript
 var PeatioSdk = require('peatio-sdk');
+var defaultClient = PeatioSdk.ApiClient.instance;
+
+// Configure OAuth2 access token for authorization: jwt
+var jwt = defaultClient.authentications['jwt'];
+jwt.accessToken = 'YOUR ACCESS TOKEN';
 
 var apiInstance = new PeatioSdk.OrdersApi();
 
@@ -117,7 +127,7 @@ null (empty response body)
 
 ### Authorization
 
-No authorization required
+[jwt](../README.md#jwt)
 
 ### HTTP request headers
 
@@ -135,6 +145,11 @@ Cancel all my orders.
 ### Example
 ```javascript
 var PeatioSdk = require('peatio-sdk');
+var defaultClient = PeatioSdk.ApiClient.instance;
+
+// Configure OAuth2 access token for authorization: jwt
+var jwt = defaultClient.authentications['jwt'];
+jwt.accessToken = 'YOUR ACCESS TOKEN';
 
 var apiInstance = new PeatioSdk.OrdersApi();
 
@@ -164,7 +179,7 @@ null (empty response body)
 
 ### Authorization
 
-No authorization required
+[jwt](../README.md#jwt)
 
 ### HTTP request headers
 
@@ -182,6 +197,11 @@ Create multiple sell/buy orders.
 ### Example
 ```javascript
 var PeatioSdk = require('peatio-sdk');
+var defaultClient = PeatioSdk.ApiClient.instance;
+
+// Configure OAuth2 access token for authorization: jwt
+var jwt = defaultClient.authentications['jwt'];
+jwt.accessToken = 'YOUR ACCESS TOKEN';
 
 var apiInstance = new PeatioSdk.OrdersApi();
 
@@ -222,7 +242,7 @@ null (empty response body)
 
 ### Authorization
 
-No authorization required
+[jwt](../README.md#jwt)
 
 ### HTTP request headers
 

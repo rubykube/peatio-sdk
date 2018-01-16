@@ -19,6 +19,11 @@ Get recent trades on market, each trade is included only once. Trades are sorted
 ### Example
 ```javascript
 var PeatioSdk = require('peatio-sdk');
+var defaultClient = PeatioSdk.ApiClient.instance;
+
+// Configure OAuth2 access token for authorization: jwt
+var jwt = defaultClient.authentications['jwt'];
+jwt.accessToken = 'YOUR ACCESS TOKEN';
 
 var apiInstance = new PeatioSdk.TradesApi();
 
@@ -59,7 +64,7 @@ null (empty response body)
 
 ### Authorization
 
-No authorization required
+[jwt](../README.md#jwt)
 
 ### HTTP request headers
 
@@ -77,6 +82,11 @@ Get your executed trades. Trades are sorted in reverse creation order.
 ### Example
 ```javascript
 var PeatioSdk = require('peatio-sdk');
+var defaultClient = PeatioSdk.ApiClient.instance;
+
+// Configure OAuth2 access token for authorization: jwt
+var jwt = defaultClient.authentications['jwt'];
+jwt.accessToken = 'YOUR ACCESS TOKEN';
 
 var apiInstance = new PeatioSdk.TradesApi();
 
@@ -117,7 +127,7 @@ null (empty response body)
 
 ### Authorization
 
-No authorization required
+[jwt](../README.md#jwt)
 
 ### HTTP request headers
 

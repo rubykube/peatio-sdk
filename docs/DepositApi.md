@@ -18,6 +18,11 @@ Get details of specific deposit.
 ### Example
 ```javascript
 var PeatioSdk = require('peatio-sdk');
+var defaultClient = PeatioSdk.ApiClient.instance;
+
+// Configure OAuth2 access token for authorization: jwt
+var jwt = defaultClient.authentications['jwt'];
+jwt.accessToken = 'YOUR ACCESS TOKEN';
 
 var apiInstance = new PeatioSdk.DepositApi();
 
@@ -46,7 +51,7 @@ null (empty response body)
 
 ### Authorization
 
-No authorization required
+[jwt](../README.md#jwt)
 
 ### HTTP request headers
 

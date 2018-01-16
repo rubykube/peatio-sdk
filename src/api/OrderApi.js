@@ -80,7 +80,7 @@
       var formParams = {
       };
 
-      var authNames = [];
+      var authNames = ['jwt'];
       var contentTypes = [];
       var accepts = ['application/json'];
       var returnType = null;
@@ -125,7 +125,7 @@
         'id': id
       };
 
-      var authNames = [];
+      var authNames = ['jwt'];
       var contentTypes = ['application/json', 'application/x-www-form-urlencoded'];
       var accepts = ['application/json'];
       var returnType = null;

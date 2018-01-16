@@ -19,6 +19,11 @@ Get ticker of all markets.
 ### Example
 ```javascript
 var PeatioSdk = require('peatio-sdk');
+var defaultClient = PeatioSdk.ApiClient.instance;
+
+// Configure OAuth2 access token for authorization: jwt
+var jwt = defaultClient.authentications['jwt'];
+jwt.accessToken = 'YOUR ACCESS TOKEN';
 
 var apiInstance = new PeatioSdk.TickersApi();
 
@@ -41,7 +46,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[jwt](../README.md#jwt)
 
 ### HTTP request headers
 
@@ -59,6 +64,11 @@ Get ticker of specific market.
 ### Example
 ```javascript
 var PeatioSdk = require('peatio-sdk');
+var defaultClient = PeatioSdk.ApiClient.instance;
+
+// Configure OAuth2 access token for authorization: jwt
+var jwt = defaultClient.authentications['jwt'];
+jwt.accessToken = 'YOUR ACCESS TOKEN';
 
 var apiInstance = new PeatioSdk.TickersApi();
 
@@ -87,7 +97,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[jwt](../README.md#jwt)
 
 ### HTTP request headers
 

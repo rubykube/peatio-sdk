@@ -86,7 +86,7 @@
       var formParams = {
       };
 
-      var authNames = [];
+      var authNames = ['jwt'];
       var contentTypes = [];
       var accepts = ['application/json'];
       var returnType = null;
