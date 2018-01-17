@@ -1,9 +1,9 @@
 ---
 swagger: "2.0"
 info:
-  version: "0.2.4"
+  version: "0.2.6"
   title: "Peatio SDK"
-host: "demo.peatio.tech"
+host: "localhost:8000"
 basePath: "/api/v2"
 schemes:
   - http

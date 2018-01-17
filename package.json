@@ -1,10 +1,10 @@
 {
   "name": "peatio-sdk",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "Peatio JavaScript SDK and API client",
-  "homepage": "https://github.com/peatio/peatio-sdk",
+  "homepage": "https://github.com/rubykube/peatio-sdk",
   "bugs": {
-    "url": "https://github.com/peatio/peatio-sdk/issues"
+    "url": "https://github.com/rubykube/peatio-sdk/issues"
   },
   "license": "LGPL-3.0",
   "author": {
@@ -21,11 +21,13 @@
       "email": "bsuprun@heliostech.fr"
     }
   ],
-  "files": ["src"],
+  "files": [
+    "src"
+  ],
   "main": "src/sdk.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/peatio/peatio-sdk.git"
+    "url": "https://github.com/rubykube/peatio-sdk.git"
   },
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha --recursive"
