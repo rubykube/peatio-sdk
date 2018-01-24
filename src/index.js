@@ -16,7 +16,7 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Account', 'model/Market', 'model/Member', 'model/TickerInfo', 'model/TickerInfoTicker', 'api/DepositApi', 'api/DepositAddressApi', 'api/DepositsApi', 'api/DepthApi', 'api/KApi', 'api/KWithPendingTradesApi', 'api/MarketsApi', 'api/MembersApi', 'api/OrderApi', 'api/OrderBookApi', 'api/OrdersApi', 'api/TickersApi', 'api/TimestampApi', 'api/TradesApi'], factory);
+    define(['./ApiClient', './model/Account', './model/Market', './model/Member', './model/TickerInfo', './model/TickerInfoTicker', './api/DepositApi', './api/DepositAddressApi', './api/DepositsApi', './api/DepthApi', './api/KApi', './api/KWithPendingTradesApi', './api/MarketsApi', './api/MembersApi', './api/OrderApi', './api/OrderBookApi', './api/OrdersApi', './api/TickersApi', './api/TimestampApi', './api/TradesApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
     module.exports = factory(require('./ApiClient'), require('./model/Account'), require('./model/Market'), require('./model/Member'), require('./model/TickerInfo'), require('./model/TickerInfoTicker'), require('./api/DepositApi'), require('./api/DepositAddressApi'), require('./api/DepositsApi'), require('./api/DepthApi'), require('./api/KApi'), require('./api/KWithPendingTradesApi'), require('./api/MarketsApi'), require('./api/MembersApi'), require('./api/OrderApi'), require('./api/OrderBookApi'), require('./api/OrdersApi'), require('./api/TickersApi'), require('./api/TimestampApi'), require('./api/TradesApi'));

@@ -16,7 +16,7 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/TickerInfo'], factory);
+    define(['../ApiClient', '../model/TickerInfo'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
     module.exports = factory(require('../ApiClient'), require('../model/TickerInfo'));
@@ -37,7 +37,7 @@
    */
 
   /**
-   * Constructs a new TickersApi. 
+   * Constructs a new TickersApi.
    * @alias module:api/TickersApi
    * @class
    * @param {module:ApiClient} apiClient Optional API client implementation to use,

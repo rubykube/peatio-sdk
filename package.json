@@ -1,6 +1,6 @@
 {
   "name": "peatio-sdk",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "Peatio JavaScript SDK and API client",
   "homepage": "https://github.com/rubykube/peatio-sdk",
   "bugs": {
